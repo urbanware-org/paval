@@ -53,6 +53,6 @@ Compare a string with a list of other strings...
 ## Useless facts
 
 * The project name is an abbreviation for ***Pa****rameter* ***Val****idator*.
-* The first version uploaded on *GitHub* was *PaVal* 1.2.5 built on February 11th, 2016.
+* The first version uploaded on *GitHub* was *PaVal* 1.2.5 built on February 11<sup>th</sup>, 2016.
 * The module for *Python* 3 was created by converting the *Python* 2 module using the *2to3* tool. However, both files are identical except for the shebang.
  
