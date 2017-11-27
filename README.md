@@ -65,7 +65,7 @@ Compare a string with a list of other strings...
 
 ## Requirements
 
-In order to use *Clap*, the *Python* framework must be installed on the system.
+In order to use *PaVal*, the *Python* framework must be installed on the system.
 
 Depending on which version of the framework you are using:
 
