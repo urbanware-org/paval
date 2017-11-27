@@ -11,7 +11,7 @@
 
 ## Definition
 
-The *PaVal* module is an easy-to-use parameter validator for *Python* projects.
+The *PaVal* module is an easy-to-use parameter validator for methods inside *Python* scripts.
 
 [Top](#)
 
