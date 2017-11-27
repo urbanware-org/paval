@@ -13,7 +13,7 @@
 
 The *PaVal* module is an easy-to-use parameter validator for *Python* projects.
 
-[Top](#paval-)
+[Top](#)
 
 ## Details
 
@@ -61,7 +61,7 @@ Compare a string with a list of other strings...
 
 * to check if the string is an item of the list.
 
-[Top](#paval-)
+[Top](#)
 
 ## Requirements
 
@@ -72,13 +72,13 @@ Depending on which version of the framework you are using:
 * *Python* 2.x (version 2.7 or higher is recommended, may also work with earlier versions)
 * *Python* 3.x (version 3.2 or higher is recommended, may also work with earlier versions)
 
-[Top](#paval-)
+[Top](#)
 
 ## Documentation
 
 There is a plain text file inside the corresponding directories with further information and usage examples.
 
-[Top](#paval-)
+[Top](#)
 
 ## Useless facts
 
@@ -86,5 +86,5 @@ There is a plain text file inside the corresponding directories with further inf
 * The first version uploaded on *GitHub* was *PaVal* 1.2.5 built on February 11<sup>th</sup>, 2016.
 * The module for *Python* 3 was created by converting the *Python* 2 module using the *2to3* tool. However, both files are identical except for the shebang.
  
-[Top](#paval-)
+[Top](#)
 
