@@ -3,17 +3,18 @@
 
 # ============================================================================
 # PaVal - Parameter validation module
-# Copyright (C) 2017 by Ralf Kilian
+# Copyright (C) 2018 by Ralf Kilian
 # Distributed under the MIT License (https://opensource.org/licenses/MIT)
 #
 # Website: http://www.urbanware.org
 # GitHub: https://github.com/urbanware-org/paval
 # ============================================================================
 
-__version__ = "1.2.6"
+__version__ = "1.2.7"
 
 import filecmp
 import os
+
 
 def compfile(path, name="", list_files=[]):
     """
@@ -22,7 +23,7 @@ def compfile(path, name="", list_files=[]):
     """
     __string(path, "%s path" % name, True)
 
-    if list_files == None:
+    if list_files is None:
         list_files = []
     elif len(list_files) == 0:
         __ex("File list is empty (no files to compare with).", True)
@@ -45,6 +46,7 @@ def compfile(path, name="", list_files=[]):
                 __ex("The %s and %s file content must not be identical." %
                      (name, name_compare), False)
 
+
 def compstr(string, name="", list_strings=[]):
     """
         Compare a string with a list of strings and check if it is an item of
@@ -53,8 +55,9 @@ def compstr(string, name="", list_strings=[]):
     __string(string, name, False)
     if len(list_strings) == 0:
         __ex("No %s strings to compare with." % name, True)
-    if not string in list_strings:
+    if string not in list_strings:
         __ex("The %s '%s' does not exist." % (name, string), False)
+
 
 def get_version():
     """
@@ -62,39 +65,41 @@ def get_version():
     """
     return __version__
 
+
 def intrange(value, name="", value_min=None, value_max=None, zero=False):
     """
         Validate an integer range.
     """
     value = __integer(value, "%s value" % name, False)
-    if not value_min == None:
+    if value_min is not None:
         value_min = __integer(value_min, "minimal %s value" % name, True)
         intvalue(value_min, name, True, True, True)
-    if not value_max == None:
+    if value_max is not None:
         value_max = __integer(value_max, "maximal %s value" % name, True)
         intvalue(value_max, name, True, True, True)
     if not zero:
         if value == 0:
             __ex("The %s value must not be zero." % name, False)
-    if (not value_min == None) and (not value_max == None):
+    if (value_min is not None) and (value_max is not None):
         if value_min > value_max:
             __ex("The maximal %s value must be greater than the minimal "
                  "value." % name, False)
         if (value_min == value_max) and (not value == value_min):
-            __ex("The %s value can only be %s (depending on further range " \
+            __ex("The %s value can only be %s (depending on further range "
                  "further range arguments)." % (name, value_min), False)
         if (value < value_min) or (value > value_max):
-            __ex("The %s value must be between %s and %s (depending on " \
+            __ex("The %s value must be between %s and %s (depending on "
                  "further range arguments)." % (name, value_min, value_max),
                  False)
-    elif not value_min == None:
+    elif value_min is not None:
         if value < value_min:
             __ex("The %s value must not be less than %s." % (name, value_min),
                  False)
-    elif not value_max == None:
+    elif value_max is not None:
         if value > value_max:
             __ex("The %s value must not be greater than %s." %
                  (name, value_max), False)
+
 
 def intvalue(value, name="", positive=True, zero=False, negative=False):
     """
@@ -110,6 +115,7 @@ def intvalue(value, name="", positive=True, zero=False, negative=False):
     if not negative:
         if value < 0:
             __ex("The %s value must not be negative." % name, False)
+
 
 def path(path, name="", is_file=False, exists=False):
     """
@@ -134,12 +140,13 @@ def path(path, name="", is_file=False, exists=False):
             __ex("The given %s %s path already exists." % (name, path_type),
                  False)
 
+
 def string(string, name="", wildcards=False, invalid_chars=None):
     """
         Validate a string.
     """
     __string(string, name, False)
-    if invalid_chars == None:
+    if invalid_chars is None:
         invalid_chars = ""
     if not wildcards:
         if ("*" in string) or ("?" in string):
@@ -153,8 +160,9 @@ def string(string, name="", wildcards=False, invalid_chars=None):
                 if char == quotes:
                     quotes = "\""
 
-                __ex("The %s contains at least one invalid character " \
+                __ex("The %s contains at least one invalid character "
                      "(%s%s%s)." % (name, quotes, char, quotes), False)
+
 
 def __ex(string, internal=False):
     """
@@ -167,11 +175,12 @@ def __ex(string, internal=False):
         string = "PaVal: " + string
     raise Exception(string)
 
+
 def __integer(value, name="", internal=False):
     """
         Internal method for basic integer validation.
     """
-    if value == None:
+    if value is None:
         __ex("The %s is missing." % name, internal)
     if value == "":
         __ex("The %s must not be empty." % name, internal)
@@ -181,14 +190,14 @@ def __integer(value, name="", internal=False):
         __ex("The %s must be an integer." % name, internal)
     return int(value)
 
+
 def __string(string, name="", internal=False):
     """
         Internal method for basic string validation.
     """
-    if string == None:
+    if string is None:
         __ex("The %s is missing." % name, internal)
     if string == "":
         __ex("The %s must not be empty." % name, internal)
 
 # EOF
-
