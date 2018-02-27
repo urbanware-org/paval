@@ -2,10 +2,10 @@
 
 **Table of contents**
 *   [Definition](#definition)
-    *   [Details](#details)
-* [Requirements](#requirements)
-* [Documentation](#documentation)
-* [Useless facts](#useless-facts)
+*   [Details](#details)
+*   [Requirements](#requirements)
+*   [Documentation](#documentation)
+*   [Useless facts](#useless-facts)
 
 ----
 
@@ -31,35 +31,35 @@ The current version of *PaVal* comes with the following features.
 
 Check a given path...
 
-* if it exists.
-* if it points to a directory or file.
+*   if it exists.
+*   if it points to a directory or file.
 
 Compare a file with a list of other files...
 
- * to check if the same file name is given multiple times.
- * to check if the file is given multiple times with a different name but the same content.
+*   to check if the same file name is given multiple times.
+*   to check if the file is given multiple times with a different name but the same content.
 
 ### Number checks
 
 Check an integer value...
 
-* if it is positive, zero or negative.
+*   if it is positive, zero or negative.
 
 Check an integer range...
 
-* if the given value is inside that range.
-* if the given value is zero.
+*   if the given value is inside that range.
+*   if the given value is zero.
 
 ### String checks
 
 Check a string...
 
-* if it contains wildcard characters.
-* if it contains invalid characters (user-defined).
+*   if it contains wildcard characters.
+*   if it contains invalid characters (user-defined).
 
 Compare a string with a list of other strings...
 
-* to check if the string is an item of the list.
+*   to check if the string is an item of the list.
 
 [Top](#)
 
@@ -69,8 +69,8 @@ In order to use *PaVal*, the *Python* framework must be installed on the system.
 
 Depending on which version of the framework you are using:
 
-* *Python* 2.x (version 2.7 or higher is recommended, may also work with earlier versions)
-* *Python* 3.x (version 3.2 or higher is recommended, may also work with earlier versions)
+*   *Python* 2.x (version 2.7 or higher is recommended, may also work with earlier versions)
+*   *Python* 3.x (version 3.2 or higher is recommended, may also work with earlier versions)
 
 [Top](#)
 
@@ -82,8 +82,8 @@ There is a plain text file inside the corresponding directories with further inf
 
 ## Useless facts
 
-* The project name is an abbreviation for ***Pa****rameter* ***Val****idator*.
-* The first version uploaded on *GitHub* was *PaVal* 1.2.5 built on February 11<sup>th</sup>, 2016.
-* The module for *Python* 3 was created by converting the *Python* 2 module using the *2to3* tool. However, both files are identical except for the shebang.
+*   The project name is an abbreviation for ***Pa****rameter* ***Val****idator*.
+*   The first version uploaded on *GitHub* was *PaVal* 1.2.5 built on February 11<sup>th</sup>, 2016.
+*   The module for *Python* 3 was created by converting the *Python* 2 module using the *2to3* tool. However, both files are identical except for the shebang.
 
 [Top](#)
