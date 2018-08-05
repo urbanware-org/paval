@@ -7,6 +7,7 @@
 # Distributed under the MIT License (https://opensource.org/licenses/MIT)
 #
 # GitHub: https://github.com/urbanware-org/paval
+# GitLab: https://gitlab.com/urbanware-org/paval
 # ============================================================================
 
 __version__ = "1.2.7"

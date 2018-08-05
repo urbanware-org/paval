@@ -8,6 +8,7 @@ README (PaVal)
         Copyright (C) 2018 by Ralf Kilian
 
         GitHub: https://github.com/urbanware-org/paval
+        GitLab: https://gitlab.com/urbanware-org/paval
 
     Definition
 
