@@ -85,7 +85,7 @@ There is a plain text file inside the corresponding directories with further inf
 
 Any suggestions, questions, bugs to report or feedback to give?
 
-You can contact me by sending an email to <dev@urbanware.org>.
+You can contact me by sending an email to [dev@urbanware.org](mailto:dev@urbanware.org).
 
 [Top](#paval)
 
