@@ -77,7 +77,7 @@ Depending on which version of the framework you are using:
 
 ## Documentation
 
-Further information and usage examples can be found inside the `usage.txt` file.
+For fundamental documentation as well as some usage examples you may have a look at the `usage.txt` file.
 
 [Top](#paval)
 
