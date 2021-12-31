@@ -66,12 +66,13 @@ Compare a string with a list of other strings...
 
 ## Requirements
 
-In order to use *PaVal*, the *Python* framework must be installed on the system.
+In order to run the latest version of *Clap*, the *Python* 3.x framework (version 3.2 or higher is recommended) must be installed on the system.
 
-Depending on which version of the framework you are using:
+Version 1.2.7 is the last official release that also runs on the *Python* 2.x framework.
 
-*   *Python* 2.x (version 2.7 or higher is recommended, may also work with earlier versions)
-*   *Python* 3.x (version 3.2 or higher is recommended, may also work with earlier versions)
+If you need a later version for the *Python* 2.x framework for whatever reason, you can try refactoring the syntax from *Python* 3.x to version 2.x using the *[3to2](https://pypi.python.org/pypi/3to2)* tool.
+
+However, there is no guarantee that this works properly or at all.
 
 [Top](#paval)
 
