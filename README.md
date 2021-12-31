@@ -66,7 +66,7 @@ Compare a string with a list of other strings...
 
 ## Requirements
 
-In order to run the latest version of *Clap*, the *Python* 3.x framework (version 3.2 or higher is recommended) must be installed on the system.
+In order to run the latest version of *PaVal*, the *Python* 3.x framework (version 3.2 or higher is recommended) must be installed on the system.
 
 Version 1.2.7 is the last official release that also runs on the *Python* 2.x framework.
 
