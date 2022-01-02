@@ -149,7 +149,7 @@ def path(input_path, name="", is_file=False, exists=False):
                  False, FileExistsError)
 
 
-def param_type_list(param_list=[]):
+def param_type_list(param_list=[], strict=True):
     """
         Validate parameter types using a list.
     """
@@ -157,6 +157,13 @@ def param_type_list(param_list=[]):
         p_name = [param][0][0]
         p_desc = [param][0][1]
         p_type = [param][0][2]
+
+        if not strict:
+            if type(p_name) == int and p_type == float:
+                # In case a float is expected and an integer is given, convert
+                # the integer to float, e.g. '2' to '2.0'
+                p_name = float(p_name)
+
         if p_type is None:
             raise TypeError("Parameter '%s' must not be 'NoneType'." % p_desc)
 
