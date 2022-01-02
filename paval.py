@@ -26,13 +26,16 @@ def compfile(input_path, name="", list_files=None):
     if list_files is None:
         list_files = []
     elif not list_files:
-        __ex("File list is empty (no files to compare with).", True)
+        __ex("File list is empty (no files to compare with).", True,
+             ValueError)
     else:
         for item in list_files:
             if not isinstance(item, list):
-                __ex("Every list item must be a sub-list.", True)
+                __ex("Every list item must be a sub-list.", True,
+                     ValueError)
             if not len(item) == 2:
-                __ex("Every sub-list must contain two items.", True)
+                __ex("Every sub-list must contain two items.", True,
+                     ValueError)
 
     input_path = os.path.abspath(input_path)
     for item in list_files:
@@ -40,11 +43,11 @@ def compfile(input_path, name="", list_files=None):
         name_compare = str(item[1])
         if input_path == path_compare:
             __ex("The %s and the %s file path must not be identical." %
-                 (name, name_compare), False)
+                 (name, name_compare), False, ValueError)
         if os.path.exists(input_path) and os.path.exists(path_compare):
             if filecmp.cmp(input_path, path_compare, 0):
                 __ex("The %s and %s file content must not be identical." %
-                     (name, name_compare), False)
+                     (name, name_compare), False, ValueError)
 
 
 def compstr(input_string, name="", list_strings=None):
@@ -54,9 +57,10 @@ def compstr(input_string, name="", list_strings=None):
     """
     __string(input_string, name, False)
     if not list_strings:
-        __ex("No %s strings to compare with." % name, True)
+        __ex("No %s strings to compare with." % name, True, ValueError)
     if input_string not in list_strings:
-        __ex("The %s '%s' does not exist." % (name, input_string), False)
+        __ex("The %s '%s' does not exist." % (name, input_string), False,
+             FileNotFoundError)
 
 
 def get_version():
@@ -79,26 +83,27 @@ def intrange(value, name="", value_min=None, value_max=None, zero=False):
         intvalue(value_max, name, True, True, True)
     if not zero:
         if value == 0:
-            __ex("The %s value must not be zero." % name, False)
+            __ex("The %s value must not be zero." % name, False, ValueError)
     if (value_min is not None) and (value_max is not None):
         if value_min > value_max:
             __ex("The maximal %s value must be greater than the minimal "
-                 "value." % name, False)
+                 "value." % name, False, ValueError)
         if (value_min == value_max) and (value != value_min):
             __ex("The %s value can only be %s (depending on further range "
-                 "further range arguments)." % (name, value_min), False)
+                 "further range arguments)." % (name, value_min), False,
+                 ValueError)
         if (value < value_min) or (value > value_max):
             __ex("The %s value must be between %s and %s (depending on "
                  "further range arguments)." % (name, value_min, value_max),
-                 False)
+                 False, ValueError)
     elif value_min is not None:
         if value < value_min:
             __ex("The %s value must not be less than %s." % (name, value_min),
-                 False)
+                 False, ValueError)
     elif value_max is not None:
         if value > value_max:
             __ex("The %s value must not be greater than %s." %
-                 (name, value_max), False)
+                 (name, value_max), False, ValueError)
 
 
 def intvalue(value, name="", positive=True, zero=False, negative=False):
@@ -108,13 +113,15 @@ def intvalue(value, name="", positive=True, zero=False, negative=False):
     value = __integer(value, "%s value" % name, False)
     if not positive:
         if value > 0:
-            __ex("The %s value must not be positive." % name, False)
+            __ex("The %s value must not be positive." % name, False,
+                 ValueError)
     if not zero:
         if value == 0:
-            __ex("The %s value must not be zero." % name, False)
+            __ex("The %s value must not be zero." % name, False, ValueError)
     if not negative:
         if value < 0:
-            __ex("The %s value must not be negative." % name, False)
+            __ex("The %s value must not be negative." % name, False,
+                 ValueError)
 
 
 def path(input_path, name="", is_file=False, exists=False):
@@ -130,7 +137,8 @@ def path(input_path, name="", is_file=False, exists=False):
         path_type = "directory"
     if exists:
         if not os.path.exists(input_path):
-            __ex("The given %s %s does not exist." % (name, path_type), False)
+            __ex("The given %s %s does not exist." % (name, path_type), False,
+                 FileNotFoundError)
         if (is_file and not os.path.isfile(input_path)) or \
            (not is_file and not os.path.isdir(input_path)):
             __ex("The given %s %s path is not a %s." % (name, path_type,
@@ -138,7 +146,7 @@ def path(input_path, name="", is_file=False, exists=False):
     else:
         if os.path.exists(input_path):
             __ex("The given %s %s path already exists." % (name, path_type),
-                 False)
+                 False, FileExistsError)
 
 
 def string(input_string, name="", wildcards=False, invalid_chars=None):
@@ -150,7 +158,8 @@ def string(input_string, name="", wildcards=False, invalid_chars=None):
         invalid_chars = ""
     if not wildcards:
         if ("*" in input_string) or ("?" in input_string):
-            __ex("The %s must not contain wildcards." % name, False)
+            __ex("The %s must not contain wildcards." % name, False,
+                 ValueError)
     if invalid_chars:
         for char in invalid_chars:
             if char in input_string:
@@ -161,10 +170,11 @@ def string(input_string, name="", wildcards=False, invalid_chars=None):
                     quotes = "\""
 
                 __ex("The %s contains at least one invalid character "
-                     "(%s%s%s)." % (name, quotes, char, quotes), False)
+                     "(%s%s%s)." % (name, quotes, char, quotes), False,
+                     ValueError)
 
 
-def __ex(exception_string, internal=False):
+def __ex(exception_string, internal=False, exception_type=TypeError):
     """
         Internal method to raise an exception.
     """
@@ -181,13 +191,13 @@ def __integer(value, name="", internal=False):
         Internal method for basic integer validation.
     """
     if value is None:
-        __ex("The %s is missing." % name, internal)
+        __ex("The %s is missing." % name, internal, ValueError)
     if value == "":
-        __ex("The %s must not be empty." % name, internal)
+        __ex("The %s must not be empty." % name, internal, ValueError)
     try:
         value = int(value)
     except ValueError:
-        __ex("The %s must be an integer." % name, internal)
+        __ex("The %s must be an integer." % name, internal, TypeError)
     return int(value)
 
 
@@ -196,8 +206,8 @@ def __string(input_string, name="", internal=False):
         Internal method for basic string validation.
     """
     if input_string is None:
-        __ex("The %s is missing." % name, internal)
+        __ex("The %s is missing." % name, internal, ValueError)
     if input_string == "":
-        __ex("The %s must not be empty." % name, internal)
+        __ex("The %s must not be empty." % name, internal, ValueError)
 
 # EOF
