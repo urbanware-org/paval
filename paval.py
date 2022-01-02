@@ -183,7 +183,7 @@ def __ex(exception_string, internal=False, exception_type=TypeError):
         ex = ex.replace((" " * 2), " ")
     if internal:
         ex = "PaVal: " + ex
-    raise Exception(ex)
+    raise exception_type(ex)
 
 
 def __integer(value, name="", internal=False):
