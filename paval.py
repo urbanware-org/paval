@@ -161,7 +161,7 @@ def param_type_list(param_list=[]):
             raise TypeError("Parameter '%s' must not be 'NoneType'." % p_desc)
 
         if not isinstance(p_name, p_type):
-            # Quick-and-dirty solution without the using regular expressions.
+            # Quick-and-dirty solution without using regular expressions.
             # Works as expected at least.
             p_type = repr(p_type).split()[1].rstrip(">")
             raise TypeError("Parameter '%s' is not type of %s." %
