@@ -149,6 +149,25 @@ def path(input_path, name="", is_file=False, exists=False):
                  False, FileExistsError)
 
 
+def param_type_list(param_list=[]):
+    """
+        Validate parameter types using a list.
+    """
+    for param in param_list:
+        p_name = [param][0][0]
+        p_desc = [param][0][1]
+        p_type = [param][0][2]
+        if p_type is None:
+            raise TypeError("Parameter '%s' must not be 'NoneType'." % p_desc)
+
+        if not isinstance(p_name, p_type):
+            # Quick-and-dirty solution without the using regular expressions.
+            # Works as expected at least.
+            p_type = repr(p_type).split()[1].rstrip(">")
+            raise TypeError("Parameter '%s' is not type of %s." %
+                            (p_desc, p_type))
+
+
 def string(input_string, name="", wildcards=False, invalid_chars=None):
     """
         Validate a string.
