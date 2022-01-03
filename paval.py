@@ -165,14 +165,15 @@ def param_type_list(param_list=[], strict=True):
                 p_name = float(p_name)
 
         if p_type is None:
-            raise TypeError("Parameter '%s' must not be 'NoneType'." % p_desc)
+            __ex("Parameter '%s' must not be 'NoneType'." % p_desc, TypeError)
 
         if not isinstance(p_name, p_type):
             # Quick-and-dirty solution without using regular expressions.
             # Works as expected at least.
             p_type = repr(p_type).split()[1].rstrip(">")
-            raise TypeError("Parameter '%s' is not type of %s." %
-                            (p_desc, p_type))
+
+            __ex("Parameter '%s' is not type of %s." % (p_desc, p_type),
+                 TypeError)
 
 
 def string(input_string, name="", wildcards=False, invalid_chars=None):
