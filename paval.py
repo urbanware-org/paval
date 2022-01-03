@@ -16,12 +16,12 @@ import filecmp
 import os
 
 
-def compfile(input_path, name="", list_files=None):
+def compfile(file_path, name="", list_files=None):
     """
         Compare files to avoid that the same file is given multiple times or
         in different ways (e.g. different name but same content).
     """
-    __string(input_path, "%s path" % name, True)
+    __string(file_path, "%s path" % name, True)
 
     if list_files is None:
         list_files = []
@@ -37,15 +37,15 @@ def compfile(input_path, name="", list_files=None):
                 __ex("Every sub-list must contain two items.", True,
                      ValueError)
 
-    input_path = os.path.abspath(input_path)
+    file_path = os.path.abspath(file_path)
     for item in list_files:
         path_compare = os.path.abspath(str(item[0]))
         name_compare = str(item[1])
-        if input_path == path_compare:
+        if file_path == path_compare:
             __ex("The %s and the %s file path must not be identical." %
                  (name, name_compare), False, ValueError)
-        if os.path.exists(input_path) and os.path.exists(path_compare):
-            if filecmp.cmp(input_path, path_compare, 0):
+        if os.path.exists(file_path) and os.path.exists(path_compare):
+            if filecmp.cmp(file_path, path_compare, 0):
                 __ex("The %s and %s file content must not be identical." %
                      (name, name_compare), False, ValueError)
 
@@ -124,27 +124,27 @@ def intvalue(value, name="", positive=True, zero=False, negative=False):
                  ValueError)
 
 
-def path(input_path, name="", is_file=False, exists=False):
+def path(pathname, name="", is_file=False, exists=False):
     """
         Validate a path of a file or directory.
     """
-    string(input_path, "%s path" % name, False, None)
-    input_path = os.path.abspath(input_path)
+    string(pathname, "%s path" % name, False, None)
+    pathname = os.path.abspath(pathname)
 
     if is_file:
         path_type = "file"
     else:
         path_type = "directory"
     if exists:
-        if not os.path.exists(input_path):
+        if not os.path.exists(pathname):
             __ex("The given %s %s does not exist." % (name, path_type), False,
                  FileNotFoundError)
-        if (is_file and not os.path.isfile(input_path)) or \
-           (not is_file and not os.path.isdir(input_path)):
+        if (is_file and not os.path.isfile(pathname)) or \
+           (not is_file and not os.path.isdir(pathname)):
             __ex("The given %s %s path is not a %s." % (name, path_type,
                                                         path_type), False)
     else:
-        if os.path.exists(input_path):
+        if os.path.exists(pathname):
             __ex("The given %s %s path already exists." % (name, path_type),
                  False, FileExistsError)
 
