@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# ============================================================================
+#
 # PaVal - Parameter validation module
-# Copyright (C) 2018 by Ralf Kilian
+# Copyright (C) 2022 by Ralf Kilian
 # Distributed under the MIT License (https://opensource.org/licenses/MIT)
 #
 # GitHub: https://github.com/urbanware-org/paval
 # GitLab: https://gitlab.com/urbanware-org/paval
-# ============================================================================
+#
 
 __version__ = "1.2.7"
 
