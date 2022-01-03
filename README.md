@@ -76,9 +76,9 @@ However, there is no guarantee that this works properly or at all.
 
 [Top](#paval)
 
-## Documentation
+## Usage
 
-For fundamental documentation as well as some usage examples you may have a look at the `usage.txt` file.
+You can find usage examples inside the `example.py` file.
 
 [Top](#paval)
 
