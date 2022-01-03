@@ -154,20 +154,20 @@ def param_type_list(param_list=[], strict=True):
         Validate parameter types using a list.
     """
     for param in param_list:
-        p_name = [param][0][0]
-        p_desc = [param][0][1]
-        p_type = [param][0][2]
+        p_value = [param][0][0]  # value
+        p_desc = [param][0][1]   # description
+        p_type = [param][0][2]   # expected value type
 
         if not strict:
-            if type(p_name) == int and p_type == float:
+            if type(p_value) == int and p_type == float:
                 # In case a float is expected and an integer is given, convert
                 # the integer to float, e.g. '2' to '2.0'
-                p_name = float(p_name)
+                p_value = float(p_value)
 
         if p_type is None:
             __ex("Parameter '%s' must not be 'NoneType'." % p_desc, TypeError)
 
-        if not isinstance(p_name, p_type):
+        if not isinstance(p_value, p_type):
             # Quick-and-dirty solution without using regular expressions.
             # Works as expected at least.
             p_type = repr(p_type).split()[1].rstrip(">")
