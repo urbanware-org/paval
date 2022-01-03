@@ -19,7 +19,7 @@ import os
 def compfile(input_path, name="", list_files=None):
     """
         Compare files to avoid that the same file is given multiple times or
-        in different ways (e. g. different name but same content).
+        in different ways (e.g. different name but same content).
     """
     __string(input_path, "%s path" % name, True)
 
