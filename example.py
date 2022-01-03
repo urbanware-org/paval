@@ -15,7 +15,7 @@ import os
 import paval as pv
 
 
-def foobar(input_file="", file_list=[], option="", buffer_size=4096, count=0):
+def foobar(input_file, file_list, option, buffer_size, count):
     """
         Sample method showing some usage examples.
     """
