@@ -236,5 +236,3 @@ def __string(input_string, name="", internal=False):
         __ex("The %s is missing." % name, internal, ValueError)
     if input_string == "":
         __ex("The %s must not be empty." % name, internal, ValueError)
-
-# EOF
