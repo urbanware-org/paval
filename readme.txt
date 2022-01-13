@@ -4,8 +4,8 @@ README (PaVal)
     Project
 
         PaVal
-        Version 1.2.7 (based on Python 3.x framework)
-        Copyright (C) 2018 by Ralf Kilian
+        Version 1.3.0 (based on Python 3.x framework)
+        Copyright (C) 2022 by Ralf Kilian
 
         GitHub: https://github.com/urbanware-org/paval
         GitLab: https://gitlab.com/urbanware-org/paval
