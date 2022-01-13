@@ -38,8 +38,14 @@ README (PaVal)
 
     Requirements
 
-        In order to use the module, Python 3.2 or higher is recommended, but
-        it may also work with earlier versions.
+        In order to use the module, the Python 3.x framework (version 3.2 or
+        higher is recommended) must be installed on the system.
+
+        If you need a version for the deprecated Python 2.x framework for
+        whatever reason, you can try refactoring the syntax from Python 3.x to
+        version 2.x using the 3to2 (https://pypi.python.org/pypi/3to2) tool.
+
+        However, there is no guarantee that this works properly or at all.
 
     Usage
 
@@ -55,4 +61,3 @@ README (PaVal)
         All trademarks belong to their respective owners.
 
         Errors and omissions excepted.
-
