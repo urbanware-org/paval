@@ -55,5 +55,3 @@ input_file = os.path.realpath(__file__)
 foobar(input_file, [["/tmp/foo.txt", "'foo' file"],
                     ["/tmp/bar.txt", "'bar' file"]],
        "print", 4096, 0)
-
-# EOF
