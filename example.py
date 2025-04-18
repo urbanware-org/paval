@@ -20,7 +20,7 @@ def foobar(input_file, file_list, option, buffer_size, count):
         Sample method showing some usage examples.
     """
 
-    # First of all, check if the paramters have the correct type
+    # First of all, check if the parameters have the correct type
     pv.param_type_list([
         [input_file, "input file", str],
         [file_list, "file list", list],
