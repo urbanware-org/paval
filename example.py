@@ -14,6 +14,7 @@
 import os
 import paval as pv
 
+
 # Some example values used for validation purposes
 input_file = os.path.realpath(__file__)  # use this script as an "input file"
 file_list = [["/tmp/foo.txt", "'foo' file"], ["/tmp/bar.txt", "'bar' file"]]
