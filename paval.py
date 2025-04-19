@@ -220,15 +220,10 @@ def __integer(value, name="", internal=False):
     """
         Internal method for basic integer validation.
     """
-    if value is None:
-        __ex(f"The {name} is missing.", internal, ValueError)
-    if value == "":
-        __ex(f"The {name} must not be empty.", internal, ValueError)
-    try:
-        value = int(value)
-    except ValueError:
+    if not isinstance(value, int):
         __ex(f"The {name} must be an integer.", internal, TypeError)
-    return int(value)
+
+    return value
 
 
 def __string(input_string, name="", internal=False):
