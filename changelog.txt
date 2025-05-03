@@ -1,10 +1,17 @@
 
 CHANGELOG (PaVal)
 
+    Version 1.3.1 (2025-05-03)
+
+        * Revised the code of the module (replaced the integer validation code
+          with a built-in function, improved string formatting in general and
+          increased the code readability).
+        * Revised and reorganized the usage example script file.
+
     Version 1.3.0 (2022-01-13)
 
-        + Added an example script that contains various usage examples (which
-          replaces the usage example text file).
+        + Added an example script file that contains various usage examples
+          (which replaces the plain usage example text file).
         + Added a method to validate multiple parameter types using a list.
 
         * Revised (renamed) some method parameters in a more reasonable way.
