@@ -10,8 +10,8 @@ CHANGELOG (PaVal)
 
     Version 1.3.0 (2022-01-13)
 
-        + Added an example script file that contains various usage examples
-          (which replaces the plain usage example text file).
+        + Added a script file that contains various usage examples (which
+          replaces the plain usage example text file).
         + Added a method to validate multiple parameter types using a list.
 
         * Revised (renamed) some method parameters in a more reasonable way.
