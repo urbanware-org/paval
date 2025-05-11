@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import os
+import tempfile
 import paval as pv
 
 
@@ -46,11 +48,17 @@ def example_method(input_file, file_list, option, buffer_size=4096, count=0):
     print("Parameter validation successful.")
 
 
-# Each element of the file list consists of two values, the file name (path)
-# and a corresponding description, for example:
-sample_file_list = [["/tmp/foo.txt", "'foo' file"],
-                    ["/tmp/bar.txt", "'bar' file"]]
+# Create a temporary file for the PaVal method example
+example_input_file, example_input_file_path = tempfile.mkstemp(
+    suffix='.txt', text=True)
+
+# Create sample file names based on the temporary file just created
+sample_file_list = [[example_input_file_path + ".foo", "'foo' file"],
+                    [example_input_file_path + ".bar", "'bar' file"]]
 
 # Call the method with some sample values. Details can be found in the
 # docstring of the method above.
-example_method("/tmp/somefile.txt", sample_file_list, "read", 1024, 4)
+example_method(example_input_file_path, sample_file_list, "read", 1024, 4)
+
+os.close(example_input_file)
+os.remove(example_input_file_path)
