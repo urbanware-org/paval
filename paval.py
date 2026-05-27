@@ -220,10 +220,10 @@ def __integer(value, name="", internal=False):
     """
         Internal method for basic integer validation.
     """
-    if not isinstance(value, int):
+    try:
+        return int(value)
+    except TypeError:
         __ex(f"The {name} must be an integer.", internal, TypeError)
-
-    return value
 
 
 def __string(input_string, name="", internal=False):
