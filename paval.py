@@ -223,7 +223,11 @@ def __integer(value, name="", internal=False):
     try:
         return int(value)
     except TypeError:
-        __ex(f"The {name} must be an integer.", internal, TypeError)
+        __ex(f"The {name} must be of a type that is convertible to integer.",
+             internal, TypeError)
+    except ValueError:
+        __ex(f"The {name} must contain a valid integer value.", internal,
+             ValueError)
 
 
 def __string(input_string, name="", internal=False):
