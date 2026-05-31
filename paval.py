@@ -10,7 +10,7 @@
 # GitLab: https://gitlab.com/urbanware-org/paval
 #
 
-__version__ = "1.3.1"
+__version__ = "1.4.0"
 
 import filecmp
 import os

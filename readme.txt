@@ -4,7 +4,7 @@ README (PaVal)
     Project
 
         PaVal
-        Version 1.3.1
+        Version 1.4.0
         Copyright (c) 2026 by Ralf Kilian
 
         GitHub: https://github.com/urbanware-org/paval

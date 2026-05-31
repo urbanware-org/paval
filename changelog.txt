@@ -1,7 +1,7 @@
 
 CHANGELOG (PaVal)
 
-    Next release (outstanding)
+    Version 1.4.0 (2026-05-31)
 
         * Revised and reorganized the usage example script file (added the
           creation of temporary files and code for platform independency).
