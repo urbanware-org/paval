@@ -39,8 +39,10 @@ def example_method(input_file, file_list, option, buffer_size=4096, count=0):
     # Ensure 'option' is one of the options from the list
     pv.compstr(option, "option", ["print", "read", "write"])
 
-    # Ensure that 'buffer_size' is a postive integer between 1 and 4096
-    pv.intrange(buffer_size, "buffer size", 1, 4096, False)
+    # Ensure that 'buffer_size' is a postive integer between 1 and 4096 (with
+    # latter given explicitly as a string to ensure that the value gets parsed
+    # as an integer)
+    pv.intrange(buffer_size, "buffer size", 1, "4096", False)
 
     # Finally, ensure that 'count' is either zero or a positive integer
     pv.intvalue(count, "count", True, True, False)
