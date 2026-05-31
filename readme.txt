@@ -4,7 +4,7 @@ README (PaVal)
     Project
 
         PaVal
-        Version 1.3.1 (based on Python 3.x framework)
+        Version 1.3.1
         Copyright (c) 2026 by Ralf Kilian
 
         GitHub: https://github.com/urbanware-org/paval
@@ -39,11 +39,6 @@ README (PaVal)
     Requirements
 
         In order to use the module, Python 3.6 or higher must be installed.
-
-        If you need a version for Python 2 for whatever reason, you can try
-        refactoring the syntax using the 3to2 tool. However, there is no
-        guarantee that this works properly or at all, and support for this is
-        not provided in any way.
 
     Usage
 
