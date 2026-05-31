@@ -14,6 +14,7 @@ __version__ = "1.3.1"
 
 import filecmp
 import os
+import re
 
 
 def compfile(file_path, name="", list_files=None):
@@ -204,13 +205,11 @@ def string(input_string, name="", wildcards=False, invalid_chars=None):
                      f"({quotes}{char}{quotes}).", False, ValueError)
 
 
-def __ex(exception_string, internal=False, exception_type=TypeError):
+def __ex(exception_string, internal=False, exception_type=ValueError):
     """
         Internal method to raise an exception.
     """
-    ex = str(exception_string).strip()
-    while " " * 2 in ex:
-        ex = ex.replace((" " * 2), " ")
+    ex = re.sub(r"\s+", " ", str(exception_string).strip())
     if internal:
         ex = "PaVal: " + ex
     raise exception_type(ex)
