@@ -5,9 +5,11 @@ CHANGELOG (PaVal)
 
         * Revised and reorganized the usage example script file (added the
           creation of temporary files and code for platform independency).
+        * Revised (enhanced) the exception handling for integer validation.
+        * Revised the code in general (negligible changes).
 
         # Fixed the integer validation bug (instead of parsing the value, its
-          type was checked).
+          type was checked before).
 
     Version 1.3.1 (2025-05-03)
 
