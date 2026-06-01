@@ -215,18 +215,24 @@ def __ex(exception_string, internal=False, exception_type=ValueError):
     raise exception_type(ex)
 
 
-def __integer(value, name="", internal=False):
+def __integer(value, name="", internal=False, strict=False):
     """
         Internal method for basic integer validation.
     """
-    try:
-        return int(value)
-    except TypeError:
-        __ex(f"The {name} must be of a type that is convertible to integer.",
-             internal, TypeError)
-    except ValueError:
-        __ex(f"The {name} must contain a valid integer value.", internal,
-             ValueError)
+    if strict:
+        if not isinstance(value, int):
+            __ex(f"The {name} must be an integer.", internal, TypeError)
+    else:
+        try:
+            return int(value)
+        except TypeError:
+            __ex(f"The {name} must be of a type that is convertible to "
+                 "integer.", internal, TypeError)
+        except ValueError:
+            __ex(f"The {name} must contain a valid integer value.", internal,
+                 ValueError)
+
+    return int(value)
 
 
 def __string(input_string, name="", internal=False):
