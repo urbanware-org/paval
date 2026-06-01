@@ -8,8 +8,7 @@ import paval as pv
 
 def example_method(input_file, file_list, option, buffer_size=4096, count=0):
     """
-        Example method that does not make any sense itself and which is only
-        used to demonstrate how the methods of PaVal work.
+        Example method to demonstrate how the methods of PaVal work.
 
         It simply expects an existing file that must not be contained in the
         specified file list, an option ("print", "read" or "write"), a buffer
