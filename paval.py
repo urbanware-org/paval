@@ -73,17 +73,16 @@ def get_version():
     return __version__
 
 
-def intrange(value, name="", value_min=None, value_max=None, zero=False):
+def intrange(value, name="", value_min=None, value_max=None, zero=False,
+             strict=False):
     """
         Validate an integer range.
     """
-    value = __integer(value, f"{name} value", False)
-    if value_min is not None:
-        value_min = __integer(value_min, f"minimal {name} value", True)
-        intvalue(value_min, name, True, True, True)
-    if value_max is not None:
-        value_max = __integer(value_max, f"maximal {name} value", True)
-        intvalue(value_max, name, True, True, True)
+    value = __integer(value, f"{name} value", False, strict)
+
+    value_min = intvalue(value_min, name, True, True, True, strict)
+    value_max = intvalue(value_max, name, True, True, True, strict)
+
     if not zero:
         if value == 0:
             __ex(f"The {name} value must not be zero.", False, ValueError)
@@ -110,11 +109,12 @@ def intrange(value, name="", value_min=None, value_max=None, zero=False):
                 False, ValueError)
 
 
-def intvalue(value, name="", positive=True, zero=False, negative=False):
+def intvalue(value, name="", positive=True, zero=False, negative=False,
+             strict=False):
     """
         Validate a single integer value.
     """
-    value = __integer(value, f"{name} value", False)
+    value = __integer(value, f"{name} value", False, strict)
     if not positive:
         if value > 0:
             __ex(f"The {name} value must not be positive.", False,
@@ -125,6 +125,8 @@ def intvalue(value, name="", positive=True, zero=False, negative=False):
     if not negative:
         if value < 0:
             __ex(f"The {name} value must not be negative.", False, ValueError)
+
+    return int(value)
 
 
 def path(pathname, name="", is_file=False, exists=False):
