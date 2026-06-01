@@ -142,16 +142,16 @@ def path(pathname, name="", is_file=False, exists=False):
         path_type = "directory"
     if exists:
         if not os.path.exists(pathname):
-            __ex(f"The given {name} {path_type} does not exist.", False,
+            __ex(f"The {name} {path_type} does not exist.", False,
                  FileNotFoundError)
         if (is_file and not os.path.isfile(pathname)) or \
            (not is_file and not os.path.isdir(pathname)):
             __ex(
-                f"The given {name} {path_type} path is not a {path_type}.",
+                f"The {name} {path_type} path is not a {path_type}.",
                 False)
     else:
         if os.path.exists(pathname):
-            __ex(f"The given {name} {path_type} path already exists.", False,
+            __ex(f"The {name} {path_type} path already exists.", False,
                  FileExistsError)
 
 
