@@ -3,10 +3,11 @@ CHANGELOG (PaVal)
 
     Version 1.4.0 (2026-06-01)
 
-        * Revised and reorganized the usage example script file (added the
-          creation of temporary files and code for platform independency).
-        * Revised (enhanced) the exception handling for integer validation.
+        * Revised and reorganized the usage example script file (revised the
+          examples, added the creation of temporary files and code for
+          platform independency).
         * Revised the code in general (negligible changes).
+        * Revised the exception handling for integer validation.
         * Revised the methods to validate integer values and ranges (added the
           strict validation parameter and return the value as integer type).
 
