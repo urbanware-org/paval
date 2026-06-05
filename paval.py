@@ -49,8 +49,8 @@ def compfile(file_path, name="", list_files=None):
         if os.path.exists(file_path) and os.path.exists(path_compare):
             if filecmp.cmp(file_path, path_compare, 0):
                 __ex(
-                    f"The {name} and {name_compare} content must not "
-                    "be identical.", False, ValueError)
+                    f"The {name} and {name_compare} content must not be "
+                    "identical.", False, ValueError)
 
 
 def compstr(input_string, name="", list_strings=None):
